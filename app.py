@@ -4,7 +4,6 @@ import tensorflow as tf
 import tensorflow_hub as hub
 import numpy as np
 import time
-import cv2
 import os
 
 app = Flask(__name__)
@@ -53,7 +52,7 @@ def home():
             os.remove(new_img_path)
         except:
             pass
-        cv2.imwrite(new_img_path , style_img)
+        tf.keras.preprocessing.image.save_img(new_img_path , style_img)
         print(filename1,filename2,new_img_path)
         return render_template(
             "home.html" ,
