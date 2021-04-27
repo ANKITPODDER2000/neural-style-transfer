@@ -5,9 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/basic.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/loader.css') }}">
     <title>Natural Style Transfer</title>
 </head>
-<body>
+<body onload="loadDone()">
+    <div class="loader">
+        <div class='body'>
+            <span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+            <div class='base'>
+              <span></span>
+              <div class='face'></div>
+            </div>
+          </div>
+          <div class='longfazers'>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <h1 class="load">Loading</h1>          
+    </div>
     <h1>Neural Style Transfer</h1>
     <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='71px' height='11px'> <path fill-rule='evenodd' d='M59.669,10.710 L49.164,3.306 L39.428,10.681 L29.714,3.322 L20.006,10.682 L10.295,3.322 L1.185,10.228 L-0.010,8.578 L10.295,0.765 L20.006,8.125 L29.714,0.765 L39.428,8.125 L49.122,0.781 L59.680,8.223 L69.858,1.192 L70.982,2.895 L59.669,10.710 Z' /></svg>
     {% if(show_result == False) %}
@@ -36,7 +58,7 @@
                 </div>
                 <img src="" alt="" id="img2">
             </div>
-            <button type="submit">Generate new image</button>
+            <button type="submit" onclick="addloader()">Generate new image</button>
         </form>
     {% else%}
         <div class="output">
@@ -56,6 +78,14 @@
             image.style.display = 'block';
             image.style.marginBottom = '30px';
         };
+
+        const addloader = () => {
+            document.querySelector("body > div.loader").style.opacity = "1";
+        }
+
+        const loadDone = () => {
+            document.querySelector("body > div.loader").style.opacity = "0"
+        }
     </script>
 </body>
 </html>
