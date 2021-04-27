@@ -214,3 +214,42 @@ form > button:hover{
         font-size: 28px;
     }
 }
+
+a{
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #134155;
+    color: #fff;
+    text-decoration: none;
+    /* display: block; */
+    font-weight: bolder;
+    letter-spacing: 2px;
+    transition: 0.5s;
+}
+a > i{
+    margin-left: 10px;
+}
+a:hover{
+    background: #134155;
+}
+@media screen and (max-width:1300px){
+    a{
+        position: relative;
+        left: 0;
+        bottom: 0px;
+        transform: translateX(0);
+        margin: 15px 0 30px;
+    }
+}
+@media screen and (max-width:450px){
+    a{
+        width: 290px;
+    }
+}

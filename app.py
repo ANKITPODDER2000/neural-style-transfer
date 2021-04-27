@@ -53,11 +53,6 @@ def home():
         except:
             pass
         tf.keras.preprocessing.image.save_img(new_img_path , style_img)
-        print([
-                [filename1 , "Image 1"],
-                [filename2 , "Image 2"],
-                [new_img_path , "Resultant Image"]
-            ])
         return render_template(
             "home.html" ,
             show_result = True ,
